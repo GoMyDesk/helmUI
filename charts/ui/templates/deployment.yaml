@@ -17,7 +17,7 @@ spec:
         {{- include "ui.labels" . | nindent 8 }}
     spec:
       containers:
-        - name: ui
+        - name: {{ .Chart.Name }}
           image: {{ $ui_repo }}:{{ default .Chart.AppVersion .Values.ui.image.tag }}
           ports:
             - containerPort: 80
