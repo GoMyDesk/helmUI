@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     {{- include "ui.labels" . | nindent 4 }}
-  name: {{ include "ui.fullname" . }}-service
+  name: {{ .Chart.Name }}-service
 spec:
   type: {{ .Values.service.type }}
   selector:

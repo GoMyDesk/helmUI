@@ -43,8 +43,28 @@ ui:
   tolerations: []
   # ui.affinity -- Node affinity for the ui pod.
   affinity: {}
+
 service:
   type: ClusterIP
   port: 3000
   targetPort: 80
+
+ingress:
+  enabled:
+    dev: false
+    staging: true
+    prod: true
+  hostname:
+    staging: ""
+    prod: ""
+  path: /(.*)
+  pathType: Prefix
+  ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    cert-ui.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 50m
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  tls: true
 
