@@ -1,6 +1,6 @@
 # Default values for ui.
 env: prod
-appVersion: v0.1.1
+appVersion: v0.1.0
 # nameOverride -- A name override for resources created by the chart.
 nameOverride: ""
 # fullnameOverride -- A full name override for resources created by the chart.
@@ -8,7 +8,7 @@ fullnameOverride: ""
 
 ui:
   # ui.spec.ui.image -- The image to use for ui pods.
-  # @default -- `ghcr.io/ui/ui:${VERSION}`
+  # @default -- `ghcr.io/gomydesk/ui:${VERSION}`
   image:
     repository:
       dev: ''
@@ -21,14 +21,6 @@ ui:
     dev: 1
     staging: 1
     prod: 1
-
-  # ui.spec.ui.selector.matchLabels.component  -- The component label to use for ui pods.
-  selector:
-    matchLabels:
-      component: web
-  # ui.spec.ui.serviceType -- The type of service to create in front of the ui instance.
-  serviceType: ClusterIP
-
   # ui.imagePullSecrets -- Image pull secrets for the ui pod.
   imagePullSecrets: []
   # ui.podSecurityContext -- The `PodSecurityContext` for the ui pod.
