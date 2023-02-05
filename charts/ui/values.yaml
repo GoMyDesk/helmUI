@@ -1,5 +1,5 @@
 # Default values for ui.
-env: prod
+env: dev
 appVersion: v0.1.0
 # nameOverride -- A name override for resources created by the chart.
 nameOverride: ""
@@ -14,9 +14,14 @@ ui:
       dev: ''
       staging: ''
       prod: ''
-   # ui.image.tag -- The tag for the ui image. Defaults to the chart version.
+  # ui.image.tag -- The tag for the ui image. Defaults to the chart version.
     tag: ''      
-      # ui.spec.ui.replicas -- The number of ui replicas to run.
+  #pass the env variable to the container
+  apiUrl:
+    dev: 
+    staging: 
+    prod: 
+  # ui.spec.ui.replicas -- The number of ui replicas to run.
   replicas:
     dev: 1
     staging: 1

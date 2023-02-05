@@ -21,3 +21,10 @@ spec:
           image: {{ $ui_repo }}:{{ default .Chart.AppVersion .Values.ui.image.tag }}
           ports:
             - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: {{ include "ui.fullname" . }}-config
+
+
+
+        
