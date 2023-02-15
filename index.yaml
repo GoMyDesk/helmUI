@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  ui:
+  - apiVersion: v2
+    appVersion: v0.1.1
+    created: "2023-02-15T15:13:05.286447961Z"
+    description: A Helm chart for a React application
+    digest: a7b7867968881702ceb478c3953d81f5ee1663b1e883917fb5740dcf76ca787c
+    name: ui
+    type: application
+    urls:
+    - https://github.com/GoMyDesk/helmUI/releases/download/ui-v0.1.0/ui-v0.1.0.tgz
+    version: v0.1.0
+generated: "2023-02-15T15:13:05.286453361Z"
