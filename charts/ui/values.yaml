@@ -18,8 +18,8 @@ ui:
     tag: 'latest'      
   #pass the env variable to the container
   apiUrl:
-    dev: https://desktop.gomydesk.com/api/
-    staging: https://desktop.gomydesk.com/api/
+    dev: https://dev.desktop.gomydesk.com/api/
+    staging: https://staging.desktop.gomydesk.com/api/
     prod: https://desktop.gomydesk.com/api/
   # ui.spec.ui.replicas -- The number of ui replicas to run.
   replicas:
@@ -52,9 +52,9 @@ ingress:
     staging: true
     prod: true
   hostname:
-    dev: "dev.ui.gomydesk.com"
-    staging: "staging.ui.gomydesk.com"
-    prod: "ui.gomydesk.com"
+    dev: dev.ui.gomydesk.com
+    staging: staging.ui.gomydesk.com
+    prod: ui.gomydesk.com
   path: /(.*)
   pathType: Prefix
   ingressClassName: nginx
