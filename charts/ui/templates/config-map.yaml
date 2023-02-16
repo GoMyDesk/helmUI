@@ -1,3 +1,5 @@
+{{- $ui_api_url := index $.Values.ui.apiUrl $.Values.env }}
+{{- if not $ui_api_url }}{{ fail (printf "ui_api_url info required: %s" $.Values.env) }}{{ end -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -5,6 +7,6 @@ metadata:
   labels:
     {{- include "ui.labels" . | nindent 4 }}
 data:
- REACT_APP_API_URL: {{ .Values.ui.apiUrl | quote }}
+ REACT_APP_API_URL: {{ $ui_api_url | quote }}
 
 

@@ -1,6 +1,6 @@
 # Default values for ui.
-env: dev
-appVersion: v0.1.0
+env: prod
+appVersion: v0.1.1
 # nameOverride -- A name override for resources created by the chart.
 nameOverride: ""
 # fullnameOverride -- A full name override for resources created by the chart.
@@ -11,16 +11,16 @@ ui:
   # @default -- `ghcr.io/gomydesk/ui:${VERSION}`
   image:
     repository:
-      dev: ''
-      staging: ''
-      prod: ''
+      dev: 'ghcr.io/gomydesk/ui'
+      staging: 'ghcr.io/gomydesk/ui'
+      prod: 'ghcr.io/gomydesk/ui'
   # ui.image.tag -- The tag for the ui image. Defaults to the chart version.
-    tag: ''      
+    tag: 'latest'      
   #pass the env variable to the container
   apiUrl:
-    dev: 
-    staging: 
-    prod: 
+    dev: https://desktop.gomydesk.com/api/
+    staging: https://desktop.gomydesk.com/api/
+    prod: https://desktop.gomydesk.com/api/
   # ui.spec.ui.replicas -- The number of ui replicas to run.
   replicas:
     dev: 1
@@ -48,12 +48,13 @@ service:
 
 ingress:
   enabled:
-    dev: false
+    dev: true
     staging: true
     prod: true
   hostname:
-    staging: ""
-    prod: ""
+    dev: "dev.ui.gomydesk.com"
+    staging: "staging.ui.gomydesk.com"
+    prod: "ui.gomydesk.com"
   path: /(.*)
   pathType: Prefix
   ingressClassName: nginx
