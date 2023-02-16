@@ -1,5 +1,5 @@
 # Default values for ui.
-env: dev
+env: prod
 appVersion: v0.1.1
 # nameOverride -- A name override for resources created by the chart.
 nameOverride: ""
@@ -48,7 +48,7 @@ service:
 
 ingress:
   enabled:
-    dev: false
+    dev: true
     staging: true
     prod: true
   hostname:
