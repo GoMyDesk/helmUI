@@ -61,7 +61,7 @@ jobs:
     - name: Check if repo exists
       run: |
         if ! helm repo list | grep -q "ui"; then
-          helm repo add ui https://gomydesk.github.io/helmUI/charts
+          helm repo add ui https://gomydesk.github.io/helmUI
         fi
     - name: Deploy to (Dev)
       if: github.event.pull_request.base.ref == 'develop' && github.event.pull_request.merged == true
