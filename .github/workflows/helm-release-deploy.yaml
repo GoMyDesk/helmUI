@@ -81,7 +81,3 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       with:
         command: helm upgrade --install  gomydesk-ui ui/ui --set env=prod 
-
-
-
-
