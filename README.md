@@ -1,17 +1,23 @@
 # helm-charts
+## Usage
 
-Helm Charts for gomydesk ui
+[Helm](https://helm.sh) must be installed to use the charts.  Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
 
-To add the repository:
+Once Helm has been set up correctly, add the repo as follows:
 
-```bash
-helm repo add ui https://gomydesk.github.io/helmUI/charts
-```
+  helm repo add ui https://gomydesk.github.io/helmUI
 
-To install the Helm chart:
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages.  You can then run `helm search repo
+ui` to see the charts.
 
-```bash
-helm install gomydesk-ui ui/ui
-```
+To install the ui chart:
+
+    helm install gomydesk-ui ui/ui
+
+To uninstall the chart:
+
+    helm delete gomydesk-ui
 
 For full chart documentation see the [chart's README](charts/ui/README.md).
