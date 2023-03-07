@@ -1,5 +1,5 @@
 # Default values for ui.
-env: prod
+env: dev  
 appVersion: v0.1.1
 # nameOverride -- A name override for resources created by the chart.
 nameOverride: ""
@@ -8,17 +8,17 @@ fullnameOverride: ""
 
 ui:
   # ui.spec.ui.image -- The image to use for ui pods.
-  # @default -- `ghcr.io/gomydesk/ui:${VERSION}`
+  # @default -- `660413460067.dkr.ecr.eu-south-1.amazonaws.com/ui:${VERSION}`
   image:
     repository:
-      dev: 'ghcr.io/gomydesk/ui'
-      staging: 'ghcr.io/gomydesk/ui'
-      prod: 'ghcr.io/gomydesk/ui'
+      dev: '660413460067.dkr.ecr.eu-south-1.amazonaws.com/ui'
+      staging: '660413460067.dkr.ecr.eu-south-1.amazonaws.com/ui'
+      prod: '660413460067.dkr.ecr.eu-south-1.amazonaws.com/ui'
   # ui.image.tag -- The tag for the ui image. Defaults to the chart version.
-    tag: 'latest'      
+    tag: 'v0.1.11'      
   #pass the env variable to the container
   apiUrl:
-    dev: https://dev.desktop.gomydesk.com/api/
+    dev: https://desktop.gomydesk.com/api/
     staging: https://staging.desktop.gomydesk.com/api/
     prod: https://desktop.gomydesk.com/api/
   # ui.spec.ui.replicas -- The number of ui replicas to run.
@@ -55,13 +55,11 @@ ingress:
     dev: dev.ui.gomydesk.com
     staging: staging.ui.gomydesk.com
     prod: ui.gomydesk.com
-  path: /(.*)
-  pathType: Prefix
+  path: /
+  pathType: ImplementationSpecific
   ingressClassName: nginx
   annotations:
-    cert-ui.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/proxy-body-size: 50m
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
   tls: true
 
