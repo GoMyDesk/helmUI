@@ -5,9 +5,9 @@ on:
     - develop
     types: [closed]
   push:
-    tags:
-    - 'v*'
-
+    branches:
+    - develop
+   
 env:
   CLUSTER_NAME: gomydesk
   AWS_REGION: eu-south-1
