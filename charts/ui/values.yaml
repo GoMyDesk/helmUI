@@ -15,7 +15,7 @@ ui:
       staging: '660413460067.dkr.ecr.eu-south-1.amazonaws.com/ui'
       prod: '660413460067.dkr.ecr.eu-south-1.amazonaws.com/ui'
   # ui.image.tag -- The tag for the ui image. Defaults to the chart version.
-    tag: 'v0.1.11'      
+    tag: 'v0.2.14'
   #pass the env variable to the container
   apiUrl:
     dev: https://desktop.gomydesk.com/api/
