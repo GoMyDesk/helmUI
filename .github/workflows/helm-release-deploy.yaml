@@ -1,16 +1,12 @@
 name: HELM Release and Deploy to EKS
 on:
-  pull_request:
-    branches:
-    - develop
-    types: [closed]
   push:
     branches:
-    - develop
-    
+      - main
+
+
 jobs:
   release:
-    if: github.event.pull_request.base.ref == 'develop' && github.event.pull_request.merged == true || github.ref == 'refs/heads/develop'
     # depending on default permission settings for your org (contents being read-only or read-write for workloads), you will have to add permissions
     # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     permissions:
