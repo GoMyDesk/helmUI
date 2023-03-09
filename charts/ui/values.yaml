@@ -1,6 +1,5 @@
 # Default values for ui.
 env: dev  
-appVersion: v0.1.1
 # nameOverride -- A name override for resources created by the chart.
 nameOverride: ""
 # fullnameOverride -- A full name override for resources created by the chart.
