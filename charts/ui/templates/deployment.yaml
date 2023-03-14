@@ -21,9 +21,12 @@ spec:
           image: {{ $ui_repo }}:{{ default .Chart.AppVersion .Values.ui.image.tag }}
           ports:
             - containerPort: 80
-          envFrom:
-            - configMapRef:
-                name: {{ include "ui.fullname" . }}-config
+          env:
+            - name: REACT_APP_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: REACT_APP_API_URL
 
 
 
